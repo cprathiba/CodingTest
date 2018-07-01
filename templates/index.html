@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Management System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            body {
+                font-family: sans-serif;
+            }
+            label {
+                display: block;
+                float: left;
+                min-width: 100px;
+                margin: 4px;
+            }
+            input, select {
+                display: block;
+                float: left;
+                min-width: 140px;
+                margin: 4px;
+            }
+            button {
+                margin: 4px 4px 4px 112px;
+                min-width: 80px;
+            }
+            br {
+                clear: both;
+            }
+            table {
+                border-collapse: collapse;
+                border: solid 1px black;
+            }
+            td, th {
+                min-width: 140px;
+                padding: 4px;
+                border-left: solid 1px black;
+            }
+            thead {
+                border-bottom: solid 1px black; 
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Student Management System</h1>
+
+        <form method="post" action="{block:systemUrl}/save-student">
+            <input type="hidden" id="id" name="id" value="{block:id}" />
+            
+            <label for="firstName">First Name</label>
+            <input type="text" id="fristName" name="firstName" value="{block:firstName}" placeholder="First Name" maxlength="200" required="required" pattern="[a-zA-Z]{3,200}" />
+            <br />
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" value="{block:lastName}" placeholder="Last Name" maxlength="200" required="required" pattern="[a-zA-Z]{3,200}" />
+            <br />
+
+            <label for="subjects">Subjects</label>
+            <select multiple="multiple" id="subjects" name="subjects[]">
+                <!--{list:subjects}--><option value="{var:id}">{var:name}</option><!--{endList:subjects}-->
+            </select>
+            <br />
+
+            <button type="submit">Save</button>
+            <br />
+
+            <h2>Student List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Subjects</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--{list:students}--><tr><td>{var:firstName}</td><td>{var:lastName}</td><td>{var:subjects}</td><td><a href="{block:systemUrl}/edit-student/id/{var:id}">[Edit]</a><a href="{block:systemUrl}/delete-student/id/{var:id}">[Delete]</a></td></tr><!--{endList:students}-->
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

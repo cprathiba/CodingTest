@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <installPath>/var/www/html/sprii</installPath>
+    <systemUrl>http://localhost/sprii/web</systemUrl>
+    <db>
+        <host>localhost</host>
+        <port>3306</port>
+        <username>root</username>
+        <password>root</password>
+        <dbname>sprii_test_app</dbname>
+    </db>
+    <routes>
+        <default>
+            <path>/</path>
+            <controller>SpriiTestApp\core\controller\DefaultController</controller>
+            <template>templates/index.html</template>
+            <contentType>text/html</contentType>
+        </default>
+        <route>
+            <path>/</path>
+            <controller>SpriiTestApp\core\controller\DefaultController</controller>
+            <template>templates/index.html</template>
+            <contentType>text/html</contentType> 
+        </route>
+        <route>
+            <path>/save-student</path>
+            <controller>SpriiTestApp\core\controller\DefaultController</controller>
+            <template></template>
+            <contentType></contentType> 
+        </route>
+    </routes>
+</config>

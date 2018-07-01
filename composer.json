@@ -1,0 +1,12 @@
+{
+    "name": "sprii/testapp",
+    "description": "PHP Excercise for sprii",
+    "type": "project",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "SpriiTestApp\\": "lib/SpriiTestApp"
+        }
+    },
+    "require": {}
+}
